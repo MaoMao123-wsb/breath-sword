@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "呼吸剑 · 苍刃对决",
+  "short_name": "呼吸剑",
+  "description": "短按近斩，长按蓄力。单场对刀，随时再来一息。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101918",
+  "theme_color": "#101918",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
