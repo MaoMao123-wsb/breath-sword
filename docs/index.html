@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101918">
+<title>呼吸剑 · 苍刃对决</title>
+<style>
+:root{color-scheme:dark;--bg:#101918;--paper:#eee9da;--muted:#91a29b;--jade:#b4dbc5;--gold:#e3c48b;--line:rgba(204,225,211,.13)}
+[hidden]{display:none!important}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--paper);font-family:Inter,"Segoe UI","Microsoft YaHei",sans-serif}body{background:radial-gradient(ellipse at 50% 42%,#233a32 0,transparent 57%),#101918}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:2px solid var(--gold);outline-offset:5px}button:disabled{opacity:.35;cursor:default}.serif{font-family:"Songti SC","Noto Serif CJK SC",STSong,SimSun,serif}.header{height:96px;max-width:1320px;margin:auto;padding:0 42px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:13px}.seal{width:35px;height:35px;border:1px solid #a8b6a8;border-radius:50%;display:grid;place-items:center;color:var(--jade);font-size:22px;position:relative}.seal:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;border:2px solid var(--bg);background:var(--jade);right:-2px;bottom:1px}.brand-title{font-size:19px;letter-spacing:.22em}.brand-sub{font-size:9px;color:var(--muted);letter-spacing:.25em;margin-top:4px}.top-actions{display:flex;gap:10px;align-items:center}.badge{color:var(--muted);font-size:10px;letter-spacing:.13em;margin-right:15px}.quiet{border:1px solid var(--line);color:#c0cec4;background:rgba(15,24,21,.35);padding:9px 13px;border-radius:7px;font-size:12px;transition:background .2s}.quiet:hover{background:#253a30}.layout{max-width:1260px;margin:12px auto 0;display:grid;grid-template-columns:minmax(210px,1fr) minmax(310px,420px) minmax(200px,1fr);gap:54px;align-items:center;padding:0 30px 24px}.eyebrow{font-size:10px;color:var(--jade);letter-spacing:.24em;display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:24px;height:1px;background:var(--jade)}h1{font-weight:400;line-height:1.27;font-size:65px;letter-spacing:.04em;margin:23px 0 22px}.intro{font-size:13px;line-height:2;color:#a7b6ac;max-width:250px;margin-bottom:37px}.rule{display:grid;grid-template-columns:27px 1fr;gap:12px;margin:23px 0}.rule-num{width:25px;height:25px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:10px;color:var(--jade)}.rule strong{display:block;font-weight:500;font-size:13px;letter-spacing:.04em}.rule p{font-size:11px;line-height:1.8;color:var(--muted);margin:6px 0 0}.note{margin:28px 0 0;color:#758c80;font-size:10px;line-height:1.9;letter-spacing:.04em}.stage-wrap{width:100%;max-width:420px;justify-self:center}.stage{position:relative;aspect-ratio:9/16;border:1px solid #516558;border-radius:15px;overflow:hidden;background:#172820;box-shadow:0 35px 100px #0005,0 0 0 7px #14221b,0 0 0 8px #91b39912;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}.stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}.stage-caption{text-align:center;font-size:10px;color:#8a9e90;letter-spacing:.07em;margin-top:18px;white-space:nowrap}kbd{font:inherit;border:1px solid #5b706144;border-radius:3px;padding:1px 5px;color:#b1c3b6;margin:0 2px}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:30px;background:linear-gradient(180deg,#0d18174d,#0d1817bb 42%,#0d1817eb);backdrop-filter:blur(3px)}.overlay[hidden]{display:none}.overlay-content{text-align:center;width:100%;max-width:310px}.small-label{font-size:10px;color:var(--jade);letter-spacing:.27em}.overlay h2{font-size:44px;letter-spacing:.1em;font-weight:400;margin:20px 0 15px;line-height:1.4}.overlay-description{color:#b9c9be;font-size:12px;line-height:2;white-space:pre-line;margin-bottom:27px}.breath-symbol{width:62px;height:62px;border:1px solid #b9d7bb60;border-radius:50%;margin:0 auto 27px;display:grid;place-items:center;box-shadow:0 0 0 10px #aacdab06,0 0 0 20px #aacdab04;color:var(--jade);font-size:25px}.primary{border:0;background:var(--jade);color:#183628;font-weight:600;letter-spacing:.08em;padding:15px 24px;border-radius:7px;width:100%;font-size:14px;box-shadow:0 4px 18px #0002}.primary:hover{background:#c8ead5}.overlay-secondary{display:block;margin:15px auto 0;border:0;background:none;color:#a4b8a9;font-size:11px;padding:7px}.overlay-footer{font-size:10px;line-height:1.8;color:#7f9988;margin-top:20px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 24px}.result-grid div{border:1px solid var(--line);padding:12px 5px;border-radius:6px;font-size:10px;color:var(--muted)}.result-grid strong{display:block;color:var(--paper);font-size:22px;font-weight:400;margin-bottom:4px}.right-panel{align-self:center}.panel-heading{color:#b9cbbb;font-size:11px;letter-spacing:.17em;margin:0 0 22px;display:flex;align-items:center;justify-content:space-between}.panel-heading span{font-size:9px;color:#678272;letter-spacing:.12em}.score-value{font-size:50px;font-weight:300;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.1}.score-label{font-size:10px;color:var(--muted);margin-top:10px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:20px 10px;margin:25px 0 32px}.stats dt{color:var(--muted);font-size:10px;margin-bottom:7px}.stats dd{font-size:18px;font-weight:300;margin:0;font-variant-numeric:tabular-nums}.divider{height:1px;background:var(--line);margin:26px 0}.phase{display:flex;align-items:center;gap:12px;margin:17px 0;opacity:.42;transition:opacity .2s}.phase.active{opacity:1}.phase-dot{width:6px;height:6px;border-radius:50%;background:var(--jade);box-shadow:0 0 0 4px #afdcbe0c}.phase[data-phase="attack"] .phase-dot{background:var(--gold)}.phase[data-phase="rest"] .phase-dot{background:#9cad9e}.phase-text{font-size:12px}.phase-text small{display:block;color:var(--muted);font-size:10px;margin-top:5px;line-height:1.7}.live-tip{font-size:11px;color:#a6bba9;line-height:1.9;min-height:44px}.footer{text-align:center;color:#5d7867;font-size:9px;letter-spacing:.13em;padding:10px 12px 23px}.sr-only{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+@media(min-height:940px) and (min-width:1050px){.layout{margin-top:24px}.stage-wrap{max-width:450px}.layout{grid-template-columns:minmax(210px,1fr) 450px minmax(200px,1fr)}}
+@media(max-height:850px) and (min-width:1000px){.header{height:72px}.layout{grid-template-columns:minmax(200px,1fr) minmax(280px,350px) minmax(180px,1fr);max-width:1120px;margin-top:8px;gap:45px}.stage-wrap{max-width:350px}h1{font-size:58px}.intro{margin-bottom:24px}.rule{margin:17px 0}.footer{padding-top:0}}
+@media(max-width:1000px){.layout{grid-template-columns:minmax(300px,420px) 220px;justify-content:center;gap:35px}.left-panel{display:none}.header{padding:0 30px}.badge{display:none}}
+@media(max-width:650px){.header{height:66px;padding:0 18px}.brand-sub{font-size:8px}.brand-title{font-size:16px}.seal{width:28px;height:28px;font-size:18px}.top-actions{gap:7px}.quiet{padding:8px 10px;font-size:11px}.layout{display:block;padding:0 12px 12px;margin:6px auto 0}.stage-wrap{max-width:min(420px,calc((100svh - 112px)*9/16));margin:auto}.stage{border-radius:11px}.stage-caption{font-size:9px;margin-top:12px}.right-panel,.footer{display:none}.overlay{padding:24px}.overlay h2{font-size:36px}.breath-symbol{margin-bottom:20px}.overlay-description{font-size:11px;margin-bottom:20px}.primary{padding:13px}.overlay-footer{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.body-button{position:absolute;z-index:2;right:5.5%;bottom:14%;width:19.5%;aspect-ratio:1;border:1px solid #bfcda575;border-radius:50%;background:radial-gradient(circle at 35% 25%,#4a6353,#172f24);color:#e1e8ce;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 0 0 5px #c5d8ad08,0 5px 15px #0004;cursor:grab;padding:0}.body-button:active,.body-button.pressed{border-color:#f6d899;background:#3b5540;cursor:grabbing}.body-icon{font-size:20px;line-height:1}.body-button strong{font-size:12px;font-weight:500;margin:3px 0}.body-button small{font-size:8px;color:#a3baa0}.body-button.cooldown{opacity:.5}.body-button.ready{box-shadow:0 0 0 5px #e6cc9e14,0 0 24px #d8b46d44}.body-button .cooldown-ring{pointer-events:none}.stage-caption{font-size:9px}.overlay{z-index:3}.overlay h2{font-size:39px}.phase[data-phase="attack"] .phase-dot{background:#ddab81}.stage:has(.overlay:not([hidden])) .body-button{visibility:hidden}@media(max-width:650px){.body-icon{font-size:17px}.body-button strong{font-size:11px}.body-button small{font-size:7px}.overlay h2{font-size:32px}.stage-caption{letter-spacing:0;font-size:8px}}</style>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="呼吸剑"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="呼吸剑：短按近斩，长按蓄力剑气。手机竖屏双指对刀，可添加到主屏幕离线游玩。"><style>.attack-pad{display:none}
+.attack-pad,.body-button,button{-webkit-tap-highlight-color:transparent}
+.mobile-tools{display:none}
+.help-dialog{color:var(--paper);background:#14251e;border:1px solid #607260;border-radius:18px;padding:25px;max-width:360px;width:calc(100% - 36px);max-height:85dvh;overflow:auto;box-shadow:0 20px 90px #0009}
+.help-dialog::backdrop{background:#07110dcc;backdrop-filter:blur(5px)}
+.help-dialog h2{font-weight:400;margin:0 0 17px;font-size:25px;letter-spacing:.08em}
+.help-dialog p,.help-dialog li{font-size:13px;line-height:1.9;color:#bccdbd}
+.help-dialog ol{padding-left:22px}.help-dialog li{margin:9px 0}
+.help-dialog strong{color:#ebd29f;font-weight:500}
+.help-dialog .primary{margin-top:15px;min-height:46px}
+.help-dialog .install-note{font-size:11px;color:#91aa97}
+.rotate-hint{display:none}
+.mobile-tools button{min-height:40px;border:0;background:none;color:#d9c595;font:inherit;font-size:11px;padding:5px 10px}
+.mobile-tools span{font-size:10px;color:#99af9f;line-height:1.4}
+@media(max-width:650px){
+ html,body{width:100%;height:100%;height:100dvh;min-height:0;overflow:hidden;overscroll-behavior:none;-webkit-text-size-adjust:100%}
+ body{display:flex;flex-direction:column;padding:max(0px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(0px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));touch-action:manipulation}
+ .header{flex:none;height:50px;width:100%;max-width:450px;padding:0 3px;gap:5px}
+ .brand{gap:8px}.brand-title{font-size:16px}.brand-sub{display:none}.seal{width:25px;height:25px;font-size:17px}
+ .top-actions{gap:3px}.top-actions .quiet{min-width:44px;min-height:44px;font-size:11px;padding:7px 8px;border-color:transparent}
+ .layout{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;width:100%;padding:0;margin:0}
+ .stage-wrap{flex:none;width:min(100%,calc((100dvh - 94px - env(safe-area-inset-top) - env(safe-area-inset-bottom))*9/16));max-width:450px;margin:0}
+ .stage{border-radius:15px;box-shadow:0 0 0 3px #14221b,0 0 0 4px #91b39912}
+ .stage-caption{display:none}
+ .body-button{right:6%;bottom:15.3%;width:24%;min-width:54px;box-shadow:0 0 0 5px #c5d8ad08,0 5px 15px #0004}
+ .body-icon{font-size:23px}.body-button strong{font-size:13px}.body-button small{font-size:9px}
+ .attack-pad{position:absolute;display:flex;z-index:2;left:6%;bottom:15.3%;width:48%;height:11.7%;min-height:48px;border:1px solid #a7cbbb80;border-radius:22px;background:linear-gradient(135deg,#315649e8,#183529ee);color:#e3e9d7;align-items:center;justify-content:center;flex-direction:column;gap:3px;box-shadow:0 0 0 5px #c5d8ad06;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;padding:0}
+ .attack-pad strong{font-weight:500;font-size:17px;letter-spacing:.2em}.attack-pad small{font-size:10px;color:#bdceba}
+ .attack-pad.pressed{border-color:#f5d89c;background:#405f42;box-shadow:0 0 18px #d3bf5630}
+ .attack-pad.full{border-color:#ebcf8c}.attack-pad.suppressed{opacity:.6}
+ body[data-mode="menu"] .attack-pad,.stage:has(.overlay:not([hidden])) .attack-pad{visibility:hidden}
+ .overlay{padding:20px}.overlay-content{max-width:285px}.overlay h2{font-size:32px;margin:15px 0 10px}
+ .overlay-description{font-size:12px;line-height:1.9;margin-bottom:20px}.overlay-footer{font-size:10px;line-height:1.8;margin-top:15px}
+ .breath-symbol{width:48px;height:48px;margin-bottom:22px;font-size:23px}
+ .primary{min-height:47px;font-size:14px}.overlay-secondary{min-height:44px;padding:10px}
+ .result-grid{gap:8px;margin-bottom:15px}.result-grid div{padding:9px 5px}.result-grid strong{font-size:20px}
+ .mobile-tools{display:flex;align-items:center;justify-content:space-between;gap:6px;flex:none;min-height:40px;width:100%;max-width:450px;margin:0 auto;padding:0 3px}
+ .help-dialog{touch-action:pan-y}
+}
+@media(max-width:650px) and (max-height:650px){
+ .header{height:44px}.stage-wrap{width:min(100%,calc((100dvh - 86px - env(safe-area-inset-top) - env(safe-area-inset-bottom))*9/16))}
+ .overlay{padding:15px}.overlay h2{font-size:26px;margin:8px 0}.breath-symbol{width:37px;height:37px;font-size:20px;margin-bottom:15px}
+ .overlay-description{font-size:10px;line-height:1.7;margin-bottom:12px}.overlay-footer{font-size:8px;margin-top:10px}
+ .small-label{font-size:9px}.result-grid{gap:6px;margin-bottom:8px}.result-grid div{padding:5px}.result-grid strong{font-size:16px}
+ .body-icon{font-size:17px}.body-button strong{font-size:11px}.body-button small{font-size:7px}
+ .attack-pad strong{font-size:14px}.attack-pad small{font-size:8px}.mobile-tools span{font-size:9px}
+}
+@media(orientation:landscape) and (max-height:550px) and (pointer:coarse){
+ .rotate-hint{position:fixed;display:flex;z-index:20;inset:0;background:#101e18f5;align-items:center;justify-content:center;flex-direction:column;color:#e3ddc6;font-size:20px;gap:16px;padding:30px;text-align:center}
+ .rotate-hint small{color:#a4b7a8;font-size:12px}
+}
+</style></head>
+<body>
+<header class="header"><div class="brand"><div class="seal serif" aria-hidden="true">息</div><div><div class="brand-title serif">呼吸剑</div><div class="brand-sub">BREATH / BLADE</div></div></div><div class="top-actions"><span class="badge">苍刃对决 · MOBILE 04</span><button class="quiet" id="soundBtn" aria-pressed="true">声音 · 开</button><button class="quiet" id="pauseBtn" disabled>暂停 ⏸</button><button class="quiet" id="helpBtn" aria-label="玩法说明">玩法</button></div></header>
+<main class="layout">
+<aside class="left-panel"><div class="eyebrow">读招 · 应对 · 反斩</div><h1 class="serif">近身，<br>拔刀。</h1><p class="intro">白发青衣，迎刃而行。<br>短按拔刀，长按蓄息出剑气。</p><div class="rule"><span class="rule-num">01</span><div><strong>短按近斩，长按剑气</strong><p>短按松开：踏步近斩。<br>长按 0.45 秒后松开：蓄力剑气。<br>贴脸满蓄斩，伤害 ×1.5。</p></div></div><div class="rule"><span class="rule-num">02</span><div><strong>右侧身法，点跳拖闪</strong><p>轻点跳过横扫。拖动闪避，<br>迎着突刺识破，背离投技后撤。</p></div></div><div class="rule"><span class="rule-num">03</span><div><strong>识破成功，满蓄反斩</strong><p>危预警 0.5 秒，最后亮环应对。<br>正确反制回 50 气，奖励一刀满蓄。</p></div></div><p class="note">电脑：空格出刀，J 跳，Q 迎击，E 后撤。<br>按住身法键拖动，也能选择任意方向。</p></aside>
+<section class="stage-wrap" aria-label="呼吸剑游戏"><div class="stage" id="stage"><canvas id="game" width="450" height="800" tabindex="0" aria-label="按住鼠标或空格守势，拖动走位，金环收拢时松开反斩"></canvas><button id="attackPad" class="attack-pad" aria-label="出剑：短按近斩，长按蓄力，按住拖动走位" hidden><strong>出剑</strong><small>短按近斩 · 长按蓄力</small></button><button id="bodyBtn" class="body-button" aria-label="身法：轻点跳跃，拖动闪避" hidden><span class="body-icon">↗</span><strong>身法</strong><small>点跳 · 拖闪</small></button><div class="overlay" id="overlay"><div class="overlay-content"><div class="breath-symbol serif" id="overlaySymbol">息</div><div class="small-label" id="overlayLabel">一名对手 · 一段呼吸</div><h2 class="serif" id="overlayTitle">呼吸剑</h2><p class="overlay-description" id="overlayDescription">按住，守势蓄息。\n金环收拢前，松手反斩。\n对手收招时，松开鼠标回气。</p><div class="result-grid" id="resultGrid" hidden></div><button class="primary" id="mainBtn">入场 · 开始对刀</button><button class="overlay-secondary" id="secondaryBtn" hidden>重新来过</button><div class="overlay-footer" id="overlayFooter">按住拖动可左右走位 · 空格键也能蓄息<br>本机保存最高分 · 无需登录</div></div></div></div><div class="stage-caption"><kbd>空格</kbd> 短按近斩 / 长按剑气　<kbd>J</kbd> 跳　<kbd>Q/E</kbd> 闪</div></section>
+<aside class="right-panel"><div class="panel-heading">这一局 <span>ONE BREATH AT A TIME</span></div><div class="score-value" id="score">0000</div><div class="score-label">当前得分</div><dl class="stats"><div><dt>漂亮反制</dt><dd id="perfectCount">0</dd></div><div><dt>用时</dt><dd id="time">00:00</dd></div><div><dt>本机最高</dt><dd id="best">—</dd></div><div><dt>剩余气息</dt><dd id="breath">100</dd></div></dl><div class="divider"></div><div class="panel-heading">看清这一招 <span id="moveName">横斩</span></div><div class="phase" data-phase="inhale"><div class="phase-dot"></div><div class="phase-text">普通横斩<small>按住可挡，金环收拢时松手弹反</small></div></div><div class="phase" data-phase="attack"><div class="phase-dot"></div><div class="phase-text">危 · 应对<small>看文字与箭头，轻点或拖动身法键</small></div></div><div class="phase" data-phase="rest"><div class="phase-dot"></div><div class="phase-text">反制 · 回气<small>奖励刀已满蓄，重新按住松手出剑</small></div></div><div class="divider"></div><p class="live-tip" id="tip">先读懂一刀，再找到你的节奏。</p><button class="quiet" id="restartBtn">重新来过 <span aria-hidden="true">↻</span></button></aside>
+</main><div class="mobile-tools"><span id="offlineStatus" role="status">正在准备离线文件…</span><button id="installBtn">添加到主屏幕</button></div><footer class="footer">呼吸剑 / 本地手感预览　·　按 Esc 或切换窗口可暂停</footer><div id="announcement" class="sr-only" aria-live="polite"></div>
+<dialog class="help-dialog" id="helpDialog" aria-labelledby="helpTitle"><h2 id="helpTitle" class="serif">一息，一剑。</h2><p><strong>左侧出剑</strong>：短按松开近斩；按住 0.45 秒以上再松开发剑气，1.5 秒蓄满。按住拖动能走位。</p><p><strong>右侧身法</strong>：轻点跳跃；往任意方向拖动闪避。突刺迎上去，横扫跳起来，投技往后撤。</p><p>危的亮环出现时应对，成功送满蓄攻击并回气。贴脸满蓄斩伤害 <strong>×1.5</strong>。</p><section id="installSteps"><h2 class="serif">放到手机桌面</h2><ol><li>用 iPhone 的 <strong>Safari</strong> 打开游戏网址。</li><li>点“分享”，选择<strong>添加到主屏幕</strong>。</li><li>等页面下方显示“已备好离线游玩”，再从桌面图标启动。</li></ol><p class="install-note">首次打开需要联网。之后离线可玩；最高分只存这台设备。请固定从同一个图标进入。</p></section><button id="closeHelpBtn" class="primary">知道了</button></dialog><div class="rotate-hint" role="status"><span>↻ 请竖起手机</span><small>战斗已暂停，竖屏后点“继续对刀”。</small></div><script id="combat-core">
+(() => {
+'use strict';
+const C=Object.freeze({width:450,height:800,enemyHP:600,playerHP:5,maxCharge:1.5,minCharge:.28,rangedThreshold:.45,meleeReach:125,meleeStep:45,meleeDamage:18,pointBlankReach:90,pointBlankMultiplier:1.5,holdDrain:15,recover:10,blockCost:20,bodyCost:15,bodyCooldown:.45,dodgeInvincible:.3,perilWarning:.5,responseWindow:.3,normalWarning:1.7,perfectWindow:.24,moveDuration:.65,attackDuration:.32,rest:.9,moveSpeed:165,recovery:.32});
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const unit=(x,y)=>{const n=Math.hypot(x,y)||1;return{x:x/n,y:y/n};};
+const names={normal:'横斩',thrust:'突刺',sweep:'下段横扫',grab:'投技'};
+const responseNames={thrust:'识破',sweep:'跳踩',grab:'抓空反制'};
+function distanceToSegment(x,y,ax,ay,bx,by){const dx=bx-ax,dy=by-ay,t=clamp(((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy||1),0,1);return Math.hypot(x-ax-t*dx,y-ay-t*dy);}
+class Engine{
+ constructor({rng=Math.random,plan=null}={}){this.rng=rng;this.plan=plan;this.mode='menu';this.events=[];this.reset();}
+ reset(){this.time=0;this.score=0;this.perfects=0;this.counters=0;this.hits=0;this.blocks=0;this.swings=0;this.inputHeld=false;this.keys=0;this.message='';this.messageTime=0;this.lastDamage=0;this.recentPerils=0;
+  this.player={x:225,y:440,targetX:225,targetY:440,hp:5,breath:100,charge:0,holdTime:0,bonus:false,holding:false,suppressed:false,recovery:0,invincible:0,hurt:0,stumble:0,bodyCD:0,action:null,actionTime:0,actionDuration:0,dashX:0,dashY:0};
+  this.enemy={x:225,y:225,fromX:225,fromY:225,toX:225,toY:225,hp:600,phase:'inhale',elapsed:0,duration:C.normalWarning,cycle:0,type:'normal',parried:false,handled:false,aimX:225,aimY:440,sourceX:225,sourceY:225,dirX:0,dirY:-1};
+ }
+ start(){this.reset();this.mode='playing';this.events=[];this.beginWindup(this.nextType(0));this.emit('start');}
+ emit(type,data={}){this.events.push({type,...data});}
+ drainEvents(){const out=this.events;this.events=[];return out;}
+ tell(s,t=1.25){this.message=s;this.messageTime=t;}
+ nextType(n){if(this.plan?.length)return this.plan[n%this.plan.length];const intro=['normal','thrust','normal','sweep','normal','grab'];if(n<intro.length)return intro[n];if(this.recentPerils>=1||this.rng()<.7)return'normal';return['thrust','sweep','grab'][Math.min(2,Math.floor(this.rng()*3))];}
+ beginWindup(type){const e=this.enemy,p=this.player;e.type=type;e.phase='inhale';e.elapsed=0;e.duration=type==='normal'?C.normalWarning:C.perilWarning;e.parried=false;e.handled=false;e.sourceX=e.x;e.sourceY=e.y;e.aimX=p.x;e.aimY=p.y;const d=unit(e.x-p.x,e.y-p.y);e.dirX=d.x;e.dirY=d.y;this.recentPerils=type==='normal'?0:this.recentPerils+1;this.emit('windup',{attack:type});}
+ beginMove(){const e=this.enemy,p=this.player;e.cycle++;e.phase='move';e.elapsed=0;e.duration=C.moveDuration;e.fromX=e.x;e.fromY=e.y;
+  const angles=[-2.35,-.4,2.5,.7,Math.PI,-1.5,0];let angle=angles[(e.cycle-1)%angles.length]+(this.rng()-.5)*.22;
+  let tx=clamp(p.x+Math.cos(angle)*175,60,390),ty=clamp(p.y+Math.sin(angle)*175,180,580);
+  if(Math.hypot(tx-p.x,ty-p.y)<112){angle+=Math.PI;tx=clamp(p.x+Math.cos(angle)*175,60,390);ty=clamp(p.y+Math.sin(angle)*175,180,580);}
+  e.toX=tx;e.toY=ty;this.emit('move');
+ }
+ press(){if(this.mode!=='playing')return;this.player.suppressed=false;this.inputHeld=true;this.beginHold();}
+ beginHold(){const p=this.player;if(!p.holding&&!p.suppressed&&p.recovery<=0&&p.stumble<=0&&!p.action&&p.breath>0){p.holding=true;p.holdTime=0;p.charge=p.bonus?C.maxCharge:0;}}
+ move(x,y=this.player.y){if(this.mode==='playing'&&this.inputHeld&&!this.player.suppressed){this.player.targetX=clamp(x,64,386);this.player.targetY=clamp(y,220,565);}}
+ release(){if(this.mode!=='playing')return;const wasHeld=this.inputHeld;this.inputHeld=false;const p=this.player;if(p.suppressed){p.suppressed=false;return;}if(p.holding||(wasHeld&&p.bonus&&p.recovery<=0&&p.stumble<=0))this.slash(false);}
+ cancelHold(){const p=this.player;this.inputHeld=false;p.suppressed=true;p.holding=false;p.holdTime=0;p.charge=p.bonus?C.maxCharge:0;p.targetX=p.x;p.targetY=p.y;}
+ cancelInput(){this.cancelHold();this.keys=0;}
+ pause(){if(this.mode==='playing'){this.cancelInput();this.mode='paused';this.emit('pause');}}
+ resume(){if(this.mode==='paused'){this.mode='playing';this.emit('resume');}}
+ isPerfectWindow(){const e=this.enemy;return e.phase==='inhale'&&e.type==='normal'&&e.duration-e.elapsed<=C.perfectWindow+1e-8;}
+ isResponseWindow(){const e=this.enemy;return e.phase==='inhale'&&e.type!=='normal'&&e.duration-e.elapsed<=C.responseWindow+1e-8;}
+ beginBody(){const p=this.player;if(this.mode!=='playing'||p.stumble>0)return false;if(p.bodyCD>1e-8){this.tell('身法收招中',.45);return false;}if(p.breath+1e-8<C.bodyCost){this.tell('气力不足 · 先缓一息',.75);return false;}this.cancelHold();return true;}
+ body(kind,dx=0,dy=0){if(!this.beginBody())return false;const p=this.player,e=this.enemy;p.breath=Math.max(0,p.breath-C.bodyCost);p.bodyCD=C.bodyCooldown;p.action=kind;p.actionTime=0;p.actionDuration=kind==='jump'?.52:.3;
+  const d=unit(dx,dy);p.dashX=d.x;p.dashY=d.y;if(kind==='dodge')p.invincible=C.dodgeInvincible;
+  this.emit('body',{kind,dx:d.x,dy:d.y,x:p.x,y:p.y});
+  if(this.isResponseWindow()&&!e.handled){let correct=false;if(e.type==='sweep')correct=kind==='jump';else if(kind==='dodge'){const dot=d.x*e.dirX+d.y*e.dirY;correct=e.type==='thrust'?dot>=Math.SQRT1_2-1e-8:dot<=-Math.SQRT1_2+1e-8;}if(correct)this.counter();}
+  return true;
+ }
+ jump(){return this.body('jump');}
+ dodge(dx,dy){if(Math.hypot(dx,dy)<1e-8)return false;return this.body('dodge',dx,dy);}
+ counter(){const p=this.player,e=this.enemy;if(e.handled)return;e.handled=true;e.parried=true;this.counters++;this.score+=280;p.breath=Math.min(100,p.breath+50);p.bonus=true;p.charge=C.maxCharge;e.phase='stagger';e.elapsed=0;e.duration=e.type==='thrust'?2:e.type==='sweep'?1:1.5;this.tell(responseNames[e.type]+'成功 · 满蓄奖励就绪',1.65);this.emit('counter',{attack:e.type,name:responseNames[e.type]});}
+ slash(forced){const p=this.player,e=this.enemy,bonus=p.bonus&&!forced,charge=p.charge;
+  const kind=p.holdTime+1e-8>=C.rangedThreshold?'ranged':'melee';p.holding=false;p.charge=0;p.holdTime=0;
+  // Melee has real reach; the short step never teleports across the arena.
+  let distance=Math.hypot(e.x-p.x,e.y-p.y);
+  // Check release position before the melee step, so an automatic lunge cannot earn this bonus.
+  const pointBlank=!forced&&charge+1e-8>=C.maxCharge&&distance<=C.pointBlankReach+1e-8;
+  if(kind==='melee'&&distance<=C.meleeReach+C.meleeStep){const d=unit(e.x-p.x,e.y-p.y),step=clamp(distance-86,0,C.meleeStep);p.x=clamp(p.x+d.x*step,60,390);p.y=clamp(p.y+d.y*step,220,575);p.targetX=p.x;p.targetY=p.y;distance=Math.hypot(e.x-p.x,e.y-p.y);}
+  const hit=kind==='ranged'||distance<=C.meleeReach+1e-8,perfect=!forced&&hit&&this.isPerfectWindow()&&!e.parried;
+  let damage=kind==='melee'?C.meleeDamage:10+Math.min(charge,C.maxCharge)*20;
+  if(bonus){damage=40;p.bonus=false;}else if(forced)damage*=.5;else if(perfect)damage*=2;else if(e.phase==='inhale')damage*=.4;
+  if(pointBlank)damage*=C.pointBlankMultiplier;
+  damage=hit?Math.round(damage):0;this.lastDamage=damage;this.swings++;p.recovery=kind==='melee'?.3:C.recovery;
+  // Tapping is an attack, not a source of free, endlessly refreshed i-frames.
+  if(!forced&&(perfect||kind==='ranged'))p.invincible=.2;
+  if(perfect){e.parried=true;this.perfects++;this.score+=240;this.tell(pointBlank?'完美呼吸 · 贴脸满蓄斩':'完美呼吸',1.1);}else{this.score+=damage*2;if(!forced)this.tell(!hit?'近斩够不到 · 长按可发剑气':pointBlank?'贴脸满蓄斩 · 伤害 ×1.5':bonus?'满蓄'+(kind==='melee'?'近斩':'剑气'):e.phase==='inhale'?'对手仍有架势':kind==='melee'?'近身斩':'蓄力剑气',.9);}
+  e.hp=Math.max(0,e.hp-damage);this.emit('slash',{kind,hit,perfect,bonus,forced,pointBlank,damage,x:p.x,y:p.y,ex:e.x,ey:e.y});if(e.hp<=0)this.finish(true);
+ }
+ exhaust(){const p=this.player;if(p.stumble>0)return;p.breath=0;if(p.holding)this.slash(true);this.cancelHold();p.stumble=1;this.tell('岔气 · 松开，缓一息',1.2);this.emit('exhaust');}
+ hurt(damage){const p=this.player;p.hp=Math.max(0,p.hp-damage);p.bonus=false;this.cancelHold();p.stumble=.8;p.hurt=.9;p.invincible=0;p.action=null;this.hits++;this.tell('受击 · 看清来招再应对',1.2);this.emit('hit',{damage});if(p.hp<=0)this.finish(false);}
+ impact(){const p=this.player,e=this.enemy;if(e.parried||e.handled){this.emit('parry');return;}
+  let inRange;if(e.type==='normal'||e.type==='thrust')inRange=distanceToSegment(p.x,p.y,e.sourceX,e.sourceY,e.aimX-e.dirX*40,e.aimY-e.dirY*40)<(e.type==='normal'?70:46);else inRange=Math.hypot(p.x-e.aimX,p.y-e.aimY)<(e.type==='sweep'?115:100);
+  if(!inRange||p.hurt>0){this.score+=15;this.tell('避开了 · 未触发反制奖励',.9);this.emit('evade');return;}
+  if(e.type==='sweep'&&p.action==='jump'&&p.actionTime/p.actionDuration>.05&&p.actionTime/p.actionDuration<.92){this.tell('跳过横扫 · 稍晚一点起跳可反制',1.1);this.emit('evade');return;}
+  if(e.type==='normal'){if(p.invincible>0){this.emit('evade');return;}if(p.holding&&p.breath>=C.blockCost){p.breath-=C.blockCost;this.blocks++;this.score+=10;this.tell('守住了这一刀',.8);this.emit('block');if(p.breath<=0)this.exhaust();return;}this.hurt(1);}
+  else this.hurt(e.type==='sweep'?1:2);
+ }
+ finish(won){this.mode=won?'won':'lost';this.cancelInput();if(won)this.score+=500+this.player.hp*100+Math.max(0,Math.round(600-this.time*10));this.emit('finish',{won});}
+ update(dt){if(this.mode!=='playing'||!Number.isFinite(dt)||dt<=0)return;let left=Math.min(dt,.25);while(left>1e-9&&this.mode==='playing'){const s=Math.min(left,1/120);this.step(s);left-=s;}}
+ step(dt){const p=this.player,e=this.enemy;this.time+=dt;this.messageTime=Math.max(0,this.messageTime-dt);for(const k of ['recovery','invincible','hurt','stumble','bodyCD'])p[k]=Math.max(0,p[k]-dt);
+  if(p.action){p.actionTime+=dt;if(p.action==='dodge'){p.x=clamp(p.x+p.dashX*375*dt,60,390);p.y=clamp(p.y+p.dashY*375*dt,220,575);p.targetX=p.x;p.targetY=p.y;}if(p.actionTime>=p.actionDuration)p.action=null;}
+  if(this.inputHeld&&!p.holding)this.beginHold();
+  if(p.holding){p.holdTime+=dt;p.charge=p.bonus?C.maxCharge:Math.min(C.maxCharge,p.charge+dt);p.breath=Math.max(0,p.breath-C.holdDrain*dt);const dx=p.targetX-p.x,dy=p.targetY-p.y,n=Math.hypot(dx,dy),step=Math.min(n,C.moveSpeed*dt);if(n>0){p.x+=dx/n*step;p.y+=dy/n*step;}if(p.breath<=1e-8)this.exhaust();}
+  else if(p.stumble<=0)p.breath=clamp(p.breath+C.recover*dt,0,100);
+  if(this.mode!=='playing')return;e.elapsed+=dt;
+  if(e.phase==='move'){const t=clamp(e.elapsed/e.duration,0,1),k=.5-.5*Math.cos(t*Math.PI);e.x=e.fromX+(e.toX-e.fromX)*k;e.y=e.fromY+(e.toY-e.fromY)*k;if(t>=1)this.beginWindup(this.nextType(e.cycle));}
+  else if(e.phase==='inhale'){
+   const t=clamp(1-(e.duration-e.elapsed)/.32,0,1),end=e.type==='normal'?75:e.type==='sweep'?85:45;
+   const tx=clamp(e.aimX+e.dirX*end,60,390),ty=clamp(e.aimY+e.dirY*end,180,580);e.x=e.sourceX+(tx-e.sourceX)*t;e.y=e.sourceY+(ty-e.sourceY)*t;
+   if(e.elapsed+1e-8>=e.duration){e.phase='attack';e.elapsed=0;e.duration=C.attackDuration;this.impact();this.emit('enemySlash',{attack:e.type,parried:e.parried,x:e.x,y:e.y,tx:e.aimX,ty:e.aimY});}
+  }
+  else if((e.phase==='attack'||e.phase==='stagger')&&e.elapsed+1e-8>=e.duration){e.phase='rest';e.elapsed=0;e.duration=C.rest;this.emit('rest');}
+  else if(e.phase==='rest'&&e.elapsed+1e-8>=e.duration&&p.stumble<=0&&p.hurt<=0)this.beginMove();
+ }
+ snapshot(){return{mode:this.mode,time:this.time,score:this.score,perfects:this.perfects,counters:this.counters,hits:this.hits,blocks:this.blocks,swings:this.swings,lastDamage:this.lastDamage,message:this.message,messageTime:this.messageTime,inputHeld:this.inputHeld,player:{...this.player},enemy:{...this.enemy},perfectWindow:this.isPerfectWindow(),responseWindow:this.isResponseWindow()};}
+}
+globalThis.BreathSwordCore={Engine,C,clamp,names,responseNames};
+})();
+
+</script>
+<script id="game-app">
+(() => {
+'use strict';
+const {Engine,C,clamp,names,responseNames}=BreathSwordCore,engine=new Engine(),$=id=>document.getElementById(id);
+const canvas=$('game'),ctx=canvas.getContext('2d'),overlay=$('overlay'),mainBtn=$('mainBtn'),secondaryBtn=$('secondaryBtn'),bodyBtn=$('bodyBtn'),attackPad=$('attackPad');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,mobileLayout=matchMedia('(max-width:650px)');
+let dpr=Math.min(devicePixelRatio||1,2),best=0,storageOK=true,muted=false,audio=null,lastFrame=0,ambient=0,shake=0,flash=0,hitFlash=0,enemyGlow=0,shieldGlow=0,slashPose=0,enemyPose=0,uiClock=0,endingDelay=0;
+let mainPointer=null,mainAnchor=null,mainSurface=null,gesture=null,fx=[],sparks=[];
+const colors={normal:'#dbc197',thrust:'#e6a18c',sweep:'#f0d28a',grab:'#c6b0e4'};
+try{const n=Number(localStorage.getItem('breath-sword-best-v3'));if(Number.isFinite(n)&&n>=0)best=n;}catch{storageOK=false;}
+function resize(){dpr=Math.min(devicePixelRatio||1,2);canvas.width=450*dpr;canvas.height=800*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}resize();window.addEventListener('resize',resize);
+function setupAudio(){if(muted)return;try{audio ||= new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});}catch{audio=null;}}
+function tone(f,d=.15,g=.04,type='sine',end=f){if(muted||!audio||audio.state!=='running')return;const o=audio.createOscillator(),v=audio.createGain(),t=audio.currentTime;o.type=type;o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(Math.max(20,end),t+d);v.gain.setValueAtTime(.0001,t);v.gain.exponentialRampToValueAtTime(g,t+.008);v.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(v);v.connect(audio.destination);o.start(t);o.stop(t+d+.03);}
+function sound(type){if(type==='perfect'||type==='counter'){tone(660,.2,.05,'sine',990);setTimeout(()=>tone(1320,.18,.025),60);}else if(type==='danger'){tone(240,.15,.025,'triangle',310);}else if(type==='slash')tone(370,.13,.03,'triangle',90);else if(type==='hit')tone(105,.2,.055,'triangle',42);else if(type==='block')tone(280,.14,.035,'triangle',160);else if(type==='body')tone(250,.1,.02,'sine',430);else if(type==='win'){tone(440,.4,.035);setTimeout(()=>tone(660,.4,.03),100);setTimeout(()=>tone(880,.5,.025),220);}}
+function rounded(x,y,w,h,r=5){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+function text(s,x,y,size,color,align='center',family='sans-serif'){ctx.font=`${size}px ${family}`;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(s,x,y);}
+function line(x1,y1,x2,y2,color,width=1){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
+function ellipse(x,y,rx,ry,color){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();}
+function arrow(x,y,dx,dy,length,color,width=3){const n=Math.hypot(dx,dy)||1;dx/=n;dy/=n;const tx=x+dx*length,ty=y+dy*length;line(x,y,tx,ty,color,width);line(tx,ty,tx-dx*10-dy*7,ty-dy*10+dx*7,color,width);line(tx,ty,tx-dx*10+dy*7,ty-dy*10-dx*7,color,width);}
+function burst(x,y,color,count=16){for(let i=0;i<count;i++){const a=Math.random()*Math.PI*2,s=50+Math.random()*130;sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:.3+Math.random()*.3,max:.6,color});}}
+function saveBest(){best=Math.max(best,engine.score);if(storageOK)try{localStorage.setItem('breath-sword-best-v3',String(best));}catch{storageOK=false;}}
+function processEvents(){const events=engine.drainEvents();for(const ev of events){const p=engine.player,e=engine.enemy;
+ if(ev.type==='slash'){slashPose=.3;enemyGlow=ev.hit?.22:0;fx.push({type:'slash',...ev,life:.3,max:.3,combo:engine.swings%2});const strong=ev.perfect||ev.bonus||ev.pointBlank;if(ev.hit){fx.push({type:'damage',x:ev.ex,y:ev.ey-75,value:ev.damage,life:.8,max:.8,perfect:strong});burst(ev.ex,ev.ey,strong?'#edce8e':'#b9e5dc',strong?18:9);if(ev.pointBlank)fx.push({type:'pointBlank',x:ev.ex,y:ev.ey-104,life:.9,max:.9});}if(ev.hit&&strong){flash=reduced?0:.06;sound('perfect');}else sound('slash');}
+ else if(ev.type==='windup'&&ev.attack!=='normal')sound('danger');
+ else if(ev.type==='counter'){burst(e.x,e.y,colors[e.type],24);flash=reduced?0:.1;shake=reduced?0:3;fx.push({type:'counter',name:ev.name,life:1.1,max:1.1});sound('counter');}
+ else if(ev.type==='enemySlash'){enemyPose=.3;fx.push({...ev,type:'enemy',life:.3,max:.3});}
+ else if(ev.type==='body'){sound('body');fx.push({...ev,type:'body',life:.3,max:.3});}
+ else if(ev.type==='block'){shieldGlow=.3;burst(p.x,p.y,'#bde1c8',12);sound('block');}
+ else if(ev.type==='hit'){hitFlash=.25;shake=reduced?0:6;burst(p.x,p.y,'#dc9b86',18);sound('hit');}
+ else if(ev.type==='exhaust')tone(150,.3,.03,'sine',65);
+ else if(ev.type==='finish'){endingDelay=.9;saveBest();if(ev.won)sound('win');}
+ }if(events.length)updateUI();}
+function clearPointers(){const mp=mainPointer,gp=gesture?.id,surface=mainSurface;mainPointer=null;mainAnchor=null;mainSurface=null;gesture=null;for(const [el,id] of [[surface,mp],[bodyBtn,gp]])if(el&&id!=null)try{if(el.hasPointerCapture(id))el.releasePointerCapture(id);}catch{}bodyBtn.classList.remove('pressed');attackPad.classList.remove('pressed');}
+const keys=new Set();
+function start(){clearPointers();keys.clear();engine.start();fx=[];sparks=[];endingDelay=0;flash=0;hitFlash=0;overlay.hidden=true;bodyBtn.hidden=false;attackPad.hidden=false;$('pauseBtn').disabled=false;$('pauseBtn').textContent='暂停 ⏸';setupAudio();updateUI();canvas.focus({preventScroll:true});}
+function formatTime(t){const n=Math.floor(t);return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');}
+function showOverlay(kind){overlay.hidden=false;const result=kind==='won'||kind==='lost',won=kind==='won';$('resultGrid').hidden=!result;secondaryBtn.hidden=kind!=='paused';$('overlaySymbol').textContent=kind==='paused'?'息':won?'定':'再';$('overlayLabel').textContent=kind==='paused'?'暂停中 · 敌我时间均已停止':won?'见危不乱，反斩得势':'每一招，都有自己的解法';$('overlayTitle').textContent=kind==='paused'?'稍歇一息':won?'息定，剑收':'再来一息';$('overlayDescription').textContent=kind==='paused'?'继续后，重新按住进入守势。':won?'迎着突刺，跳过横扫，后撤躲投。\n你的呼吸，已经稳了。':'突刺：朝敌人闪。横扫：轻点跳。\n投技：朝远离敌人的方向闪。';mainBtn.textContent=kind==='paused'?'继续对刀':'再打一局';$('overlayFooter').textContent=storageOK?'本机最高分独立记录 · 无处决 · 无需联网':'当前浏览器未允许保存，游戏仍可正常游玩';if(result)$('resultGrid').innerHTML=`<div><strong>${engine.score}</strong>本局得分</div><div><strong>${engine.counters}</strong>危反制</div><div><strong>${engine.perfects}</strong>完美呼吸</div><div><strong>${formatTime(engine.time)}</strong>交锋用时</div>`;$('announcement').textContent=kind==='paused'?'已暂停':won?'获胜':'本局结束';mainBtn.focus({preventScroll:true});}
+function pause(){if(engine.mode!=='playing')return;engine.pause();clearPointers();keys.clear();$('pauseBtn').textContent='继续 ▶';showOverlay('paused');updateUI();}
+function resume(){if(engine.mode!=='paused')return;engine.resume();overlay.hidden=true;$('pauseBtn').textContent='暂停 ⏸';canvas.focus({preventScroll:true});}
+mainBtn.addEventListener('click',()=>engine.mode==='paused'?resume():start());secondaryBtn.addEventListener('click',start);$('restartBtn').addEventListener('click',start);$('pauseBtn').addEventListener('click',()=>engine.mode==='playing'?pause():resume());
+$('soundBtn').addEventListener('click',()=>{muted=!muted;$('soundBtn').textContent='声音 · '+(muted?'关':'开');$('soundBtn').setAttribute('aria-pressed',String(!muted));if(!muted)setupAudio();});
+for(const el of [canvas,bodyBtn,attackPad]){el.addEventListener('contextmenu',ev=>ev.preventDefault());el.addEventListener('dragstart',ev=>ev.preventDefault());el.addEventListener('pointercancel',pause);el.addEventListener('lostpointercapture',ev=>{if(engine.mode==='playing'&&(mainPointer===ev.pointerId||gesture?.id===ev.pointerId))pause();});}
+for(const surface of [canvas,attackPad]){
+ surface.addEventListener('pointerdown',ev=>{if(engine.mode!=='playing'||mainPointer!==null||ev.button!==0)return;ev.preventDefault();mainPointer=ev.pointerId;mainSurface=surface;mainAnchor={x:ev.clientX,y:ev.clientY,px:engine.player.x,py:engine.player.y};surface.setPointerCapture(ev.pointerId);attackPad.classList.add('pressed');setupAudio();engine.press();});
+ surface.addEventListener('pointermove',ev=>{if(mainPointer!==ev.pointerId)return;const scale=450/canvas.getBoundingClientRect().width;engine.move(mainAnchor.px+(ev.clientX-mainAnchor.x)*scale,mainAnchor.py+(ev.clientY-mainAnchor.y)*scale);});
+ surface.addEventListener('pointerup',ev=>{if(mainPointer!==ev.pointerId)return;ev.preventDefault();mainPointer=null;mainAnchor=null;mainSurface=null;attackPad.classList.remove('pressed');engine.release();});
+}
+bodyBtn.addEventListener('pointerdown',ev=>{ev.preventDefault();ev.stopPropagation();if(gesture||!engine.beginBody())return;gesture={id:ev.pointerId,x:ev.clientX,y:ev.clientY,time:performance.now(),consumed:false};bodyBtn.setPointerCapture(ev.pointerId);bodyBtn.classList.add('pressed');setupAudio();});
+bodyBtn.addEventListener('pointermove',ev=>{if(gesture?.id!==ev.pointerId||gesture.consumed)return;const dx=ev.clientX-gesture.x,dy=ev.clientY-gesture.y;if(Math.hypot(dx,dy)>=30){gesture.consumed=true;engine.dodge(dx,dy);}});
+bodyBtn.addEventListener('pointerup',ev=>{if(gesture?.id!==ev.pointerId)return;const g=gesture;gesture=null;bodyBtn.classList.remove('pressed');if(!g.consumed&&performance.now()-g.time<=180&&Math.hypot(ev.clientX-g.x,ev.clientY-g.y)<30)engine.jump();else if(!g.consumed)engine.tell('轻点跳跃 · 拖动闪避',.8);});
+window.addEventListener('keydown',ev=>{if(ev.code==='Escape'||ev.code==='KeyP'){if(ev.repeat)return;ev.preventDefault();engine.mode==='playing'?pause():engine.mode==='paused'?resume():null;return;}if(engine.mode!=='playing')return;const dirs={ArrowUp:[0,-1],KeyW:[0,-1],ArrowDown:[0,1],KeyS:[0,1],ArrowLeft:[-1,0],KeyA:[-1,0],ArrowRight:[1,0],KeyD:[1,0]};if(['Space','KeyJ','KeyQ','KeyE'].includes(ev.code)||dirs[ev.code]){ev.preventDefault();if(ev.repeat)return;keys.add(ev.code);setupAudio();if(ev.code==='Space')engine.press();else if(ev.code==='KeyJ')engine.jump();else if(ev.code==='KeyQ'||ev.code==='KeyE'){const e=engine.enemy,p=engine.player,d=e.phase==='inhale'?{x:e.dirX,y:e.dirY}:{x:e.x-p.x,y:e.y-p.y},sign=ev.code==='KeyQ'?1:-1;engine.dodge(d.x*sign,d.y*sign);}else engine.dodge(...dirs[ev.code]);}});
+window.addEventListener('keyup',ev=>{keys.delete(ev.code);if(ev.code==='Space'){ev.preventDefault();engine.release();}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});window.addEventListener('blur',pause);window.addEventListener('breath-sword-pause',pause);
+function updateUI(){const p=engine.player,e=engine.enemy;document.body.dataset.mode=engine.mode;attackPad.classList.toggle('full',p.charge+1e-8>=C.maxCharge);attackPad.classList.toggle('suppressed',p.suppressed);$('score').textContent=String(engine.score).padStart(4,'0');$('perfectCount').textContent=engine.perfects+engine.counters;$('time').textContent=formatTime(engine.time);$('breath').textContent=Math.ceil(p.breath);$('best').textContent=best||'—';$('moveName').textContent=names[e.type];let phase=e.phase==='stagger'||e.phase==='rest'?'rest':e.type!=='normal'&&e.phase==='inhale'?'attack':e.phase==='inhale'?'inhale':'none';document.querySelectorAll('[data-phase]').forEach(el=>el.classList.toggle('active',el.dataset.phase===phase));bodyBtn.classList.toggle('cooldown',p.bodyCD>0||p.breath<15||p.stumble>0);bodyBtn.classList.toggle('ready',engine.isResponseWindow());bodyBtn.setAttribute('aria-disabled',String(p.bodyCD>0||p.breath<15||p.stumble>0));$('tip').textContent=engine.messageTime>0?engine.message:p.bonus?'奖励已满蓄：短按近斩，长按 0.45 秒发剑气。':e.phase==='inhale'&&e.type!=='normal'?'看危的文字与箭头，在亮环时应对；普通护盾挡不住。':e.phase==='move'?'对手正在换位。下一招的方向会在预警时锁定。':mobileLayout.matches?'左侧出剑，右侧身法；看亮环应对危。':'短按近斩，长按剑气；J 跳、Q 迎刺、E 后撤。';}
+  function drawBackground(){
+    const bg=ctx.createLinearGradient(0,0,0,800);bg.addColorStop(0,'#263b32');bg.addColorStop(.5,'#1c3027');bg.addColorStop(1,'#15291f');ctx.fillStyle=bg;ctx.fillRect(0,0,450,800);
+    const moon=ctx.createRadialGradient(225,128,2,225,128,160);moon.addColorStop(0,'#bccfb924');moon.addColorStop(1,'#a5c3aa00');ctx.fillStyle=moon;ctx.fillRect(40,0,370,320);
+    ellipse(225,116,46,46,'#c9d5bc0d');ellipse(225,116,31,31,'#ccdac40a');
+    ctx.fillStyle='#11271e66';ctx.beginPath();ctx.moveTo(0,265);ctx.lineTo(66,173);ctx.lineTo(121,226);ctx.lineTo(168,167);ctx.lineTo(246,269);ctx.lineTo(350,186);ctx.lineTo(450,249);ctx.lineTo(450,380);ctx.lineTo(0,380);ctx.closePath();ctx.fill();
+    // Perspective stone floor and distant shrine, all drawn locally.
+    ctx.fillStyle='#243c2d';ctx.beginPath();ctx.moveTo(88,288);ctx.lineTo(362,288);ctx.lineTo(530,800);ctx.lineTo(-80,800);ctx.closePath();ctx.fill();
+    for(let y=315;y<800;y+=(y-220)*.25){line(5,y,445,y,'#a6bf9f0b');}
+    for(let x=-400;x<900;x+=120)line(225+(x-225)*.1,285,x,800,'#bacdad0a');
+    line(88,288,-80,800,'#9cb58e18',2);line(362,288,530,800,'#9cb58e18',2);
+    for(const side of [-1,1]){
+      const x=225+side*164;ctx.fillStyle='#10271d';ctx.fillRect(x-4,0,8,366);ctx.fillRect(x+side*31,0,3,345);
+      for(let i=0;i<6;i++){let y=80+i*48;line(x-6,y,x+6,y,'#486348',2);ctx.save();ctx.translate(x,y+10);ctx.scale(side,1);for(let j=0;j<3;j++){ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(-22-j*7,-16,-30-j*7,-25+j*10);ctx.quadraticCurveTo(-15,-18,0,0);ctx.fillStyle='#47654855';ctx.fill();}ctx.restore();}
+    }
+    for(const x of [55,395]){line(x,0,x,135,'#6f82612a');rounded(x-11,133,22,34,5);ctx.fillStyle='#cbb87a19';ctx.fill();line(x-12,138,x+12,138,'#bda67544');line(x-12,162,x+12,162,'#bda67533');ellipse(x,150,38,45,'#d1b66a05');}
+    ellipse(225,297,122,35,'#0b1c1655');ellipse(225,290,119,32,'#4a5d422d');ctx.beginPath();ctx.ellipse(225,289,118,31,0,0,Math.PI*2);ctx.strokeStyle='#afbd8833';ctx.lineWidth=1;ctx.stroke();
+    ellipse(225,630,169,48,'#0c1c1555');ellipse(225,620,163,45,'#5c6e4521');ctx.beginPath();ctx.ellipse(225,619,162,44,0,0,Math.PI*2);ctx.strokeStyle='#aabd8822';ctx.stroke();
+    for(let i=0;i<13;i++){const t=ambient*.13+i*4.71,x=225+Math.sin(t*.6+i)*190,y=120+((i*59+ambient*5)%540);ellipse(x,y,1.1,1.1,`rgba(193,215,154,${.15+.1*Math.sin(t)})`);}
+    const vignette=ctx.createRadialGradient(225,390,160,225,390,480);vignette.addColorStop(0,'#08140f00');vignette.addColorStop(1,'#08140f80');ctx.fillStyle=vignette;ctx.fillRect(0,0,450,800);
+  }
+function drawFighter(x,y,enemy=false){
+ const p=engine.player,e=engine.enemy,other=enemy?p:e,guard=enemy?e.phase==='inhale':p.holding;
+ const pose=enemy?enemyPose:slashPose,attack=clamp(pose/.3,0,1),face=other.x<x?-1:1;
+ const wind=reduced?0:Math.sin(ambient*3.1+(enemy?2:0)),bob=reduced?0:Math.sin(ambient*2.2)*.8;
+ const cloth=enemy?'#57282a':'#152f3d',light=enemy?'#a4473c':'#315b67',metal=enemy?'#5b5553':'#799498',edge=enemy?'#bf8861':'#c6b58a';
+ const poly=(pts,fill,stroke=null,w=1)=>{ctx.beginPath();ctx.moveTo(...pts[0]);for(const pt of pts.slice(1))ctx.lineTo(...pt);ctx.closePath();ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=w;ctx.stroke();}};
+ ctx.save();ctx.translate(x,y+bob);ctx.scale(face*1.09,1.09);
+ if(!(!enemy&&p.action==='jump'))ellipse(0,44,32,9,'#06140d90');
+ if(!enemy&&p.hurt>0)ctx.globalAlpha=.6+Math.sin(ambient*50)*.25;
+ // Long, split coat and streaming sash establish a silhouette before details.
+ poly([[-17,-25],[-28,10],[-34+wind*3,45],[-18,39],[-5,20],[7,-13]],cloth,'#0c1c24',1.3);
+ poly([[10,-24],[26,9],[35-wind*3,42],[19,38],[2,16],[-3,-16]],light,'#0b2229',1.2);
+ poly([[-10,4],[-18,31],[-20,45],[-7,41],[1,14]],enemy?'#84352f':'#284d5a');
+ line(-28,35,-19,26,edge+'99',1);line(24,31,31,37,edge+'99',1);
+ // Boots and separate shins keep the stance readable during movement.
+ poly([[-15,12],[-5,12],[-4,39],[-17,41],[-21,46],[-5,46],[0,40],[-1,18]],'#172327');
+ poly([[4,13],[14,12],[18,37],[28,43],[27,47],[13,46],[7,39]],'#142126');
+ for(const xx of [-12,12]){poly([[xx-6,20],[xx+5,20],[xx+5,34],[xx-6,35]],metal,'#21363b',.8);line(xx-5,25,xx+4,24,edge,.8);line(xx-4,30,xx+5,29,edge,.8);}
+ // Flowing hair is rendered behind the neck and shoulder armor.
+ ctx.beginPath();ctx.moveTo(-5,-55);ctx.bezierCurveTo(-24,-56,-22-wind*4,-32,-33-wind*6,-25);ctx.bezierCurveTo(-21,-24,-11,-31,-8,-42);ctx.closePath();ctx.fillStyle=enemy?'#1a1c22':'#c8d8d6';ctx.fill();
+ poly([[-16,-33],[11,-35],[20,-11],[15,10],[-14,10],[-22,-12]],cloth,'#11232c',1);
+ const chest=ctx.createLinearGradient(-12,-32,17,9);chest.addColorStop(0,light);chest.addColorStop(1,cloth);
+ poly([[-10,-31],[2,-27],[13,-31],[15,-2],[4,7],[-12,3]],chest);
+ poly([[-4,-30],[4,-23],[-2,3],[-9,0]],enemy?'#d4ac82':'#d2d9c7');
+ line(10,-24,-10,-7,edge,2);line(-10,-24,8,-8,edge+'88',1);
+ // Layered shoulder plates, rivets, wrappings and a wide waist belt.
+ for(const side of [-1,1]){ctx.save();ctx.translate(side*18,-25);ctx.rotate(side*.2);poly([[-9,-8],[8,-7],[13,3],[8,11],[-10,8],[-12,0]],metal,'#1c3035',1);for(let i=0;i<3;i++)line(-8,-2+i*4,9,-1+i*4,edge+'99',1);ellipse(-5,-4,1.3,1.3,edge);ellipse(5,-3,1.3,1.3,edge);ctx.restore();}
+ poly([[-17,1],[17,0],[16,10],[-16,11]],'#182429',edge,1);rounded(-4,2,10,8,2);ctx.fillStyle=edge;ctx.fill();rounded(-2,4,6,4,1);ctx.fillStyle=cloth;ctx.fill();
+ ctx.beginPath();ctx.moveTo(13,7);ctx.quadraticCurveTo(35,12+wind*5,41,29+wind*4);ctx.lineTo(29,25);ctx.quadraticCurveTo(31,17,11,13);ctx.closePath();ctx.fillStyle=enemy?'#c05d45':'#689c9e';ctx.fill();
+ // Left hand holds the scabbard; the other hand drives the attack.
+ line(-22,-17,-26,3,cloth,10);line(-26,-2,-19,8,metal,7);line(-22,6,-38,20,'#111e28',5);line(-34,17,-51,30,'#49616a',4);line(-45,25,-48,29,edge,2);
+ // Neck, face and tied hair. Enemy wears a distinct horned war mask.
+ rounded(-6,-42,12,12,3);ctx.fillStyle=enemy?'#b19c82':'#cdbfa5';ctx.fill();
+ poly([[-9,-61],[7,-63],[14,-54],[11,-39],[2,-33],[-8,-40]],enemy?'#a58b70':'#d4cbb4','#18313a',.8);
+ if(enemy){poly([[-10,-56],[3,-59],[13,-53],[10,-39],[2,-35],[-8,-41]],'#4a3b3b',edge,.7);poly([[-7,-60],[-13,-77],[-16,-72],[-11,-52]],'#ba9e79');poly([[8,-58],[16,-75],[19,-71],[13,-50]],'#d3b68b');line(-5,-50,0,-48,'#edb281',1.8);line(5,-48,11,-50,'#edb281',1.8);poly([[-2,-46],[6,-46],[8,-40],[-2,-39]],'#b58c69');line(0,-41,6,-42,'#322d31',1);}
+ else{poly([[-11,-55],[-13,-64],[-4,-70],[8,-69],[16,-60],[10,-52],[5,-59],[0,-54],[-3,-62]],'#d6e3dd','#839c9c',.7);poly([[-9,-55],[-4,-53],[-3,-42],[-10,-45]],'#a4bcbc');line(5,-50,10,-51,'#24414a',1.6);line(9,-46,12,-45,'#8d8f7e',1);poly([[-8,-43],[3,-42],[10,-39],[2,-34],[-7,-36]],'#284751');}
+ line(-8,-55,12,-56,enemy?'#a44839':'#6a9392',2);
+ // Hand, guard and a curved steel blade, with a bright but narrow cutting edge.
+ ctx.save();ctx.translate(17,-16);ctx.rotate(attack>0?-.95+(1-attack)*2.1:guard?-.52:.48);
+ line(0,0,16,5,light,10);line(11,4,24,1,metal,7);ellipse(25,0,4,4,enemy?'#bca487':'#d6cbb3');
+ line(24,0,36,-8,'#1b282e',5);for(let i=0;i<4;i++)line(25+i*2,-3-i*1.3,29+i*2,-i*1.3,edge,1);
+ line(31,-14,40,-3,edge,3);ctx.beginPath();ctx.moveTo(36,-9);ctx.quadraticCurveTo(66,-36,72,-76);ctx.lineTo(76,-85);ctx.quadraticCurveTo(77,-43,40,-6);ctx.closePath();const steel=ctx.createLinearGradient(36,-8,77,-85);steel.addColorStop(0,'#6b8c93');steel.addColorStop(.45,'#ebf4eb');steel.addColorStop(1,'#a5c7cc');ctx.fillStyle=steel;ctx.fill();ctx.beginPath();ctx.moveTo(39,-7);ctx.quadraticCurveTo(75,-42,76,-84);ctx.strokeStyle='#e7f3ea';ctx.lineWidth=1.2;ctx.stroke();
+ if(attack>0){ctx.shadowColor=enemy?'#efaa76':'#a8e1e0';ctx.shadowBlur=9;ctx.strokeStyle=enemy?'#e8b28799':'#a5dceaaa';ctx.lineWidth=2;ctx.stroke();}ctx.restore();
+ ctx.restore();
+}
+
+function drawArena(){ellipse(225,441,194,153,'#10251b55');ctx.beginPath();ctx.ellipse(225,441,190,150,0,0,Math.PI*2);ctx.strokeStyle='#c2cca820';ctx.lineWidth=1;ctx.stroke();for(let i=0;i<8;i++){const a=i*Math.PI/4;line(225+Math.cos(a)*183,441+Math.sin(a)*143,225+Math.cos(a)*190,441+Math.sin(a)*150,'#b6c5a245');}}
+function drawCue(){const e=engine.enemy,p=engine.player;if(engine.mode==='menu')return;
+ if(e.phase==='move'){ctx.setLineDash([3,7]);line(e.x,e.y+30,e.toX,e.toY+30,'#b6caa333');ctx.setLineDash([]);text('对手换位',225,128,11,'#91ac95');return;}
+ if(e.phase==='inhale'){const t=clamp(e.elapsed/e.duration,0,1),peril=e.type!=='normal',ready=peril?engine.isResponseWindow():engine.isPerfectWindow(),color=colors[e.type],r=23+(1-t)*48;
+  ctx.beginPath();ctx.arc(e.x,e.y-18,r,0,Math.PI*2);ctx.strokeStyle=ready?color:color+'77';ctx.lineWidth=ready?3:1.3;ctx.stroke();ctx.beginPath();ctx.arc(e.x,e.y-18,23,0,Math.PI*2);ctx.strokeStyle=color+'44';ctx.lineWidth=1;ctx.stroke();
+  if(peril){const lx=e.y<260?e.x+(e.x<225?55:-55):e.x,ly=e.y<260?Math.max(175,e.y-45):e.y-88;text('危',lx,ly,34,color,'center','"Songti SC", SimSun, serif');text(names[e.type],lx,ly-25,10,color);const dx=e.type==='grab'?-e.dirX:e.dirX,dy=e.type==='grab'?-e.dirY:e.dirY;if(e.type!=='sweep')arrow(p.x-dx*16,p.y-dy*16,dx,dy,47,ready?color:color+'99',3);else{text('跳',p.x,p.y-70,17,color);ctx.beginPath();ctx.arc(p.x,p.y-62,25,Math.PI,Math.PI*2);ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();}
+   rounded(91,99,268,45,8);ctx.fillStyle='#10221be6';ctx.fill();text('危 · '+names[e.type]+'  '+(e.type==='sweep'?'轻点跳':e.type==='thrust'?'迎着来招闪':'远离对手闪'),225,117,13,color);text(ready?'亮环已到 · 现在应对':'看清方向，等待亮环',225,135,9,ready?color:'#8b9e8b');
+  }else{text(ready?'松手 · 完美呼吸':'按住守势，等待金环',225,124,12,ready?'#f0d294':'#a8bba3');}
+  ctx.save();ctx.globalAlpha=.18;if(e.type==='normal'||e.type==='thrust'){line(e.sourceX,e.sourceY+20,e.aimX,e.aimY+20,color,e.type==='thrust'?12:28);}else{ctx.beginPath();ctx.ellipse(e.aimX,e.aimY+20,e.type==='sweep'?112:96,35,0,0,Math.PI*2);ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();}ctx.restore();
+ }else if(e.phase==='stagger'){text('破势 · 可反击',225,123,13,'#e2c991');}else if(e.phase==='rest'){text('收剑回气',225,123,11,'#93ac93');}
+ if(p.holding){ellipse(p.x,p.y,46,46,'#b6d7bc08');ctx.beginPath();ctx.arc(p.x,p.y,45,0,Math.PI*2);ctx.strokeStyle=shieldGlow>0?'#d1f4d9':'#a9d9c179';ctx.lineWidth=shieldGlow>0?4:1.5;ctx.stroke();ctx.beginPath();ctx.arc(p.x,p.y,51,-Math.PI/2,-Math.PI/2+p.charge/1.5*Math.PI*2);ctx.strokeStyle=p.bonus?'#f4d195':'#bed6ab';ctx.lineWidth=2;ctx.stroke();}
+}
+function drawReach(){
+ const p=engine.player,e=engine.enemy;if(engine.mode!=='playing')return;const d=Math.hypot(e.x-p.x,e.y-p.y),a=Math.atan2(e.y-p.y,e.x-p.x),near=d<=C.meleeReach+C.meleeStep;
+ if(e.phase!=='inhale'||e.type==='normal'){
+  ctx.save();ctx.setLineDash([3,7]);ctx.beginPath();ctx.arc(p.x,p.y,C.meleeReach,a-.6,a+.6);ctx.strokeStyle=near?'#b9dccf66':'#9eb4a333';ctx.lineWidth=1;ctx.stroke();ctx.restore();
+  text(near?'近斩可及':'长按发剑气',p.x,p.y+62,9,near?'#c5dfc8':'#8ea791');
+ }
+ const closeFull=p.charge+1e-8>=C.maxCharge&&d<=C.pointBlankReach+1e-8;
+ if(closeFull){ctx.beginPath();ctx.arc(p.x,p.y,55,0,Math.PI*2);ctx.strokeStyle='#f4d195aa';ctx.lineWidth=2;ctx.stroke();text('贴脸满蓄 · 伤害 ×1.5',p.x,p.y-87,11,'#ffe2a0');}
+ else if(p.holding&&p.holdTime>=C.rangedThreshold){text('剑气就绪',p.x,p.y-87,10,'#e8d49d');}
+}
+function drawEffects(){
+ for(const f of fx){const k=clamp(f.life/f.max,0,1);ctx.save();ctx.globalAlpha=k;
+  if(f.type==='slash'){
+   const dx=f.ex-f.x,dy=f.ey-f.y,n=Math.hypot(dx,dy)||1,angle=Math.atan2(dy,dx),color=f.perfect||f.bonus||f.pointBlank?'#ffe2a0':'#bde8e5';
+   ctx.strokeStyle=color;ctx.shadowColor=color;ctx.shadowBlur=12;
+   if(f.kind==='melee'){
+    const radius=clamp(n,62,C.meleeReach),span=.92,dir=f.combo?1:-1,center=angle+(1-k)*dir*.38;
+    ctx.beginPath();ctx.arc(f.x,f.y,radius,center-span,center+span);ctx.lineWidth=f.hit?6:3;ctx.stroke();
+    ctx.beginPath();ctx.arc(f.x,f.y,radius-13,center-span*.8,center+span*.75);ctx.lineWidth=2;ctx.globalAlpha=k*.4;ctx.stroke();
+   }else{
+    const travel=clamp((1-k)*1.55,0,1),cx=f.x+dx*travel,cy=f.y+dy*travel,span=.9,r=32+25*(1-k);
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(angle);ctx.beginPath();ctx.arc(-r*.55,0,r,-span,span);ctx.lineWidth=f.bonus||f.perfect||f.pointBlank?7:5;ctx.stroke();ctx.beginPath();ctx.arc(-r*.55-12,0,r*.85,-span,span);ctx.lineWidth=2;ctx.globalAlpha*=.35;ctx.stroke();ctx.restore();
+   }
+  }else if(f.type==='enemy'){
+   const a=Math.atan2(f.ty-f.y,f.tx-f.x),r=Math.min(110,Math.hypot(f.tx-f.x,f.ty-f.y)+14);ctx.beginPath();ctx.arc(f.x,f.y,r,a-.8,a+.8);ctx.strokeStyle=f.parried?'#9da88d66':colors[f.attack];ctx.lineWidth=f.parried?2:5;ctx.stroke();
+  }else if(f.type==='damage')text('−'+f.value,f.x,f.y-(1-k)*24,f.perfect?23:16,f.perfect?'#f0d199':'#c5d5b3');
+  else if(f.type==='pointBlank')text('贴脸满蓄斩',clamp(f.x,65,385),f.y-(1-k)*14,12,'#ffe2a0');
+  else if(f.type==='body')ellipse(f.x,f.y+20,28*(2-k),10*(2-k),'#bad1b833');
+  else if(f.type==='counter'){text(f.name,225,325,34,'#f1d59e','center','"Songti SC", SimSun, serif');text('满蓄力 + 回气 50',225,360,11,'#d4c99f');}
+  ctx.restore();
+ }
+ for(const s of sparks){ctx.globalAlpha=clamp(s.life/s.max,0,1);line(s.x,s.y,s.x-s.vx*.026,s.y-s.vy*.026,s.color,1.5);}ctx.globalAlpha=1;
+}
+function drawHUD(){const p=engine.player,e=engine.enemy,mobile=mobileLayout.matches;text('赤烬 · 危对决',30,32,11,'#c4ccb2','left');text(Math.ceil(e.hp)+' / 600',420,32,10,'#9eb18c','right');rounded(30,51,390,4,2);ctx.fillStyle='#11281b';ctx.fill();if(e.hp>0){rounded(30,51,390*e.hp/600,4,2);ctx.fillStyle=colors[e.type];ctx.fill();}text('苍刃  /  赤烬     ·     短按近斩，长按剑气',225,72,9,'#9db39f');
+ const lifeY=mobile?90:656;for(let i=0;i<5;i++){const x=35+i*17;ctx.beginPath();ctx.moveTo(x,lifeY-5);ctx.lineTo(x+5,lifeY);ctx.lineTo(x,lifeY+5);ctx.lineTo(x-5,lifeY);ctx.closePath();ctx.fillStyle=i<p.hp?'#c5dbb6':'#3b513c';ctx.fill();}text(formatTime(engine.time),mobile?420:30,mobile?110:680,10,'#8ba180',mobile?'right':'left');text('反制 '+engine.counters,mobile?420:115,mobile?90:680,10,'#9db18d',mobile?'right':'left');
+ text('气 力',30,714,10,p.breath<20?'#d7a087':'#b3c8a8','left');text(Math.ceil(p.breath)+' / 100',420,714,9,'#93ac8a','right');rounded(30,730,390,5,2);ctx.fillStyle='#10261b';ctx.fill();if(p.breath>0){rounded(30,730,390*p.breath/100,5,2);ctx.fillStyle=p.breath<20?'#d59e79':'#b5cda3';ctx.fill();}
+ text(p.bonus?'奖励刀':'剑 势',30,758,10,p.bonus?'#f0d195':'#93a486','left');rounded(88,756,245,3,1);ctx.fillStyle='#152a1d';ctx.fill();if(p.charge>0){rounded(88,756,245*p.charge/1.5,3,1);ctx.fillStyle=p.bonus?'#f0cf91':'#c7b884';ctx.fill();}text(p.bonus?'满蓄就绪':p.stumble>0?'恢复中':p.holding?(p.holdTime>=C.rangedThreshold?'松开剑气':'松开近斩'):'松开回气',420,758,9,p.bonus?'#efd39b':'#93a486','right');
+ if(engine.messageTime>0&&!fx.some(f=>f.type==='counter')){text(engine.message,225,mobile?562:609,mobile?12:10,engine.message.includes('受击')?'#dda98b':'#b4c5a7');}if(engine.message.startsWith('完美呼吸')&&engine.messageTime>0)text('完 美 呼 吸',225,330,26,'#efdaa5','center','"Songti SC", SimSun, serif');}
+function frame(now){const dt=lastFrame?Math.min((now-lastFrame)/1000,.06):0;lastFrame=now;const paused=engine.mode==='paused';if(!paused)ambient+=dt;if(engine.mode==='playing')engine.update(dt);processEvents();
+ if(!paused){for(const f of fx)f.life-=dt;fx=fx.filter(f=>f.life>0);for(const s of sparks){s.life-=dt;s.x+=s.vx*dt;s.y+=s.vy*dt;s.vy+=75*dt;}sparks=sparks.filter(s=>s.life>0);shake=Math.max(0,shake-dt*28);flash=Math.max(0,flash-dt);hitFlash=Math.max(0,hitFlash-dt);enemyGlow=Math.max(0,enemyGlow-dt);shieldGlow=Math.max(0,shieldGlow-dt);slashPose=Math.max(0,slashPose-dt);enemyPose=Math.max(0,enemyPose-dt);}
+ if((engine.mode==='won'||engine.mode==='lost')&&endingDelay>0){endingDelay-=dt;if(endingDelay<=0){clearPointers();$('pauseBtn').disabled=true;showOverlay(engine.mode);}}
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,450,800);ctx.save();if(shake>0&&!reduced)ctx.translate((Math.random()-.5)*shake,(Math.random()-.5)*shake);drawBackground();drawArena();drawReach();drawCue();const p=engine.player,e=engine.enemy,jump=p.action==='jump'?Math.sin(p.actionTime/p.actionDuration*Math.PI)*55:0;if(jump>0)ellipse(p.x,p.y+30,26,8,'#06130e55');if(e.y<p.y){drawFighter(e.x,e.y,true);drawFighter(p.x,p.y-jump,false);}else{drawFighter(p.x,p.y-jump,false);drawFighter(e.x,e.y,true);}drawEffects();drawHUD();ctx.restore();if(flash>0){ctx.fillStyle=`rgba(255,244,211,${flash*1.6})`;ctx.fillRect(0,0,450,800);}if(hitFlash>0){ctx.fillStyle=`rgba(170,60,35,${hitFlash*.6})`;ctx.fillRect(0,0,450,800);}uiClock+=dt;if(uiClock>.07){updateUI();uiClock=0;}requestAnimationFrame(frame);}
+$('overlayLabel').textContent='苍刃对决 · 近斩与剑气';$('overlayDescription').textContent=mobileLayout.matches?'左侧出剑：短按近斩，长按蓄力剑气。\n按住拖动走位，贴脸满蓄伤害 ×1.5。\n右侧身法：轻点跳跃，拖动闪避。':'短按空格或画面：近身斩。\n按住 0.45 秒再松开：蓄力剑气。\nJ 跳，Q 迎着敌人闪，E 后撤。';$('overlayFooter').textContent=mobileLayout.matches?'突刺迎上去 · 横扫跳起来 · 投技往后撤':'按住拖动可接近敌人 · 右侧身法键支持点跳与拖闪';
+Object.defineProperty(window,'breathSword',{value:Object.freeze({snapshot:()=>engine.snapshot(),version:'0.4.0'})});updateUI();requestAnimationFrame(frame);
+})();
+
+</script>
+<script>(() => {
+ 'use strict';
+ const $=id=>document.getElementById(id),status=$('offlineStatus'),dialog=$('helpDialog');
+ let cached=false,deferredInstall=null;
+ const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+ function paintStatus(){status.textContent=cached?(navigator.onLine?'已备好离线游玩':'离线可玩 · 最高分存本机'):location.protocol==='file:'?'本地离线文件':window.isSecureContext?'正在准备离线文件…':'同 Wi-Fi 试玩 · 电脑需保持开启';}
+ function showHelp(){window.dispatchEvent(new Event('breath-sword-pause'));$('installSteps').hidden=standalone();if(!dialog.open)dialog.showModal();}
+ $('helpBtn').addEventListener('click',showHelp);
+ $('installBtn').addEventListener('click',async()=>{if(deferredInstall){window.dispatchEvent(new Event('breath-sword-pause'));await deferredInstall.prompt();deferredInstall=null;}else showHelp();});
+ $('closeHelpBtn').addEventListener('click',()=>dialog.close());
+ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;});
+ window.addEventListener('appinstalled',()=>{$('installBtn').textContent='玩法说明';});
+ if(standalone())$('installBtn').textContent='玩法说明';
+ const portrait=matchMedia('(orientation: portrait)');portrait.addEventListener('change',()=>{if(!portrait.matches)window.dispatchEvent(new Event('breath-sword-pause'));});
+ window.addEventListener('online',paintStatus);window.addEventListener('offline',paintStatus);paintStatus();
+ if('serviceWorker' in navigator&&window.isSecureContext&&/^https?:$/.test(location.protocol)){
+  navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'}).then(async registration=>{
+   await navigator.serviceWorker.ready;
+   cached=!!(await caches.match(new URL('./index.html',location.href).href));paintStatus();
+   registration.addEventListener('updatefound',()=>{const worker=registration.installing;worker?.addEventListener('statechange',()=>{if(worker.state==='installed'&&navigator.serviceWorker.controller)status.textContent='新版本已备好 · 下局刷新即可';});});
+  }).catch(()=>{status.textContent='可在线玩 · 离线文件暂未备好';});
+ }
+})();
+</script></body>
+</html>
